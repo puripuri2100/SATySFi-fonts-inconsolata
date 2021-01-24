@@ -1,0 +1,126 @@
+@require: stdjabook
+
+
+let inconsolata-block-text =
+  '<
+    +p{abcdefghijklmnopqrstuvwxyz}
+    +p{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+    +p{0123456789}
+    +p{!"\#\$\%&'()\*+,-./:\;\<=\>?\@\{\|\}~[\\]\^_\`}
+  >
+
+let add-inline-fil ib = ib ++ inline-fil
+
+let-block ctx +show-font fontname =
+  let header-ctx =
+    ctx
+    |> set-font-size 14pt
+    |> set-paragraph-margin 30pt 0pt
+  in
+  let font-ctx =
+    ctx |> set-font Latin (fontname, 1.0, 0.0)
+  in
+  let fontname-bb =
+    fontname
+    |> embed-string
+    |> read-inline header-ctx
+    |> add-inline-fil
+    |> line-break true true header-ctx
+  in
+  let example-bb =
+    inconsolata-block-text
+    |> read-block font-ctx
+  in
+  fontname-bb +++ example-bb
+
+in
+
+document (|
+  title = {\SATySFi;-fonts-inconsolata};
+  author = {Naoki Kaneko};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +show-font(`fonts-inconsolata:Inconsolata-Black                   `); 
+  +show-font(`fonts-inconsolata:Inconsolata-Bold                    `); 
+  +show-font(`fonts-inconsolata:Inconsolata-Condensed               `); 
+  +show-font(`fonts-inconsolata:Inconsolata-CondensedBlack          `); 
+  +show-font(`fonts-inconsolata:Inconsolata-CondensedBold           `); 
+  +show-font(`fonts-inconsolata:Inconsolata-CondensedExtraBold      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-CondensedExtraLight     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-CondensedLight          `); 
+  +show-font(`fonts-inconsolata:Inconsolata-CondensedMedium         `); 
+  +show-font(`fonts-inconsolata:Inconsolata-CondensedRegular        `); 
+  +show-font(`fonts-inconsolata:Inconsolata-CondensedSemiBold       `); 
+  +show-font(`fonts-inconsolata:Inconsolata-Expanded                `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExpandedBlack           `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExpandedBold            `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExpandedExtraBold       `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExpandedExtraLight      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExpandedLight           `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExpandedMedium          `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExpandedRegular         `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExpandedSemiBold        `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraBold               `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensed          `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensedBlack     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensedBold      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensedExtraBold `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensedExtraLight`); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensedLight     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensedMedium    `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensedRegular   `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraCondensedSemiBold  `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpanded           `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpandedBlack      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpandedBold       `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpandedExtraBold  `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpandedExtraLight `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpandedLight      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpandedMedium     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpandedRegular    `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraExpandedSemiBold   `); 
+  +show-font(`fonts-inconsolata:Inconsolata-ExtraLight              `); 
+  +show-font(`fonts-inconsolata:Inconsolata-Light                   `); 
+  +show-font(`fonts-inconsolata:Inconsolata-Medium                  `); 
+  +show-font(`fonts-inconsolata:Inconsolata-Regular                 `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiBold                `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensed           `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensedBlack      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensedBold       `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensedExtraBold  `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensedExtraLight `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensedLight      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensedMedium     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensedRegular    `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiCondensedSemiBold   `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpanded            `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpandedBlack       `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpandedBold        `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpandedExtraBold   `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpandedExtraLight  `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpandedLight       `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpandedMedium      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpandedRegular     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-SemiExpandedSemiBold    `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensed          `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensedBlack     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensedBold      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensedExtraBold `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensedExtraLight`); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensedLight     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensedMedium    `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensedRegular   `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraCondensedSemiBold  `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpanded           `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpandedBlack      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpandedBold       `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpandedExtraBold  `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpandedExtraLight `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpandedLight      `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpandedMedium     `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpandedRegular    `); 
+  +show-font(`fonts-inconsolata:Inconsolata-UltraExpandedSemiBold   `); 
+  +show-font(`fonts-inconsolata:Ligconsolata-Bold                   `); 
+  +show-font(`fonts-inconsolata:Ligconsolata-Regular                `); 
+>
