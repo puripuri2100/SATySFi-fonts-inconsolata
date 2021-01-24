@@ -113,6 +113,6 @@ satyrographos install
 
 ---
 
-This software released under OFL1-1 license.
+This software released under OFL-1.1 license.
 
 Copyright (c) 2021 Naoki Kaneko (a.k.a. "puripuri2100")
